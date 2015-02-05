@@ -94,11 +94,7 @@ open class FloatingButtonService : Service() {
             }
         }
 
-        floatingButton?.setOnClickListener(object : View.OnClickListener {
-            public override fun onClick(v: View) {
-                lockScreen()
-            }
-        })
+        floatingButton?.setOnClickListener { lockScreen() }
     }
 
     override fun onDestroy() {

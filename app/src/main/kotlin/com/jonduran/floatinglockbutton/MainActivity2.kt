@@ -4,11 +4,22 @@ import android.support.v7.app.ActionBarActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.text.SpannableString
+import android.text.Spannable
+import android.text.Spanned
 
 /**
  * Created by jonathanduran on 1/28/15.
  */
 open class MainActivity2 : ActionBarActivity() {
+    final val RESULT_ENABLE: Int = 1
+
+    class object {
+        public final val PREF: String = "floating_lock_button_pref"
+        public final val ADMIN_ENABLED: String = "admin_enabled"
+        public final val BUTTON_DISPLAYED: String = "button_displayed"
+    }
+
     protected override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,4 +47,10 @@ open class MainActivity2 : ActionBarActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    private fun styleActionBar() {
+        var title: SpannableString = SpannableString(getString(R.string.app_name))
+        title.setSpan(TypefaceSpan(this, "RobotoCondensed-Bold.ttf"), 0, title.length(),
+                Spanned.SPAN_POINT_MARK)
+        getSupportActionBar().setTitle(title)
+    }
 }

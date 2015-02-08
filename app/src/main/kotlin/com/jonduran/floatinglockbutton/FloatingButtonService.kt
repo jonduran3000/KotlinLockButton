@@ -20,6 +20,10 @@ import android.app.admin.DevicePolicyManager
  */
 open class FloatingButtonService : Service() {
 
+    class object {
+        fun getClass() = FloatingButtonService().javaClass
+    }
+
     var windowManager: WindowManager? = null
     var floatingButton: ImageButton? = null
 
